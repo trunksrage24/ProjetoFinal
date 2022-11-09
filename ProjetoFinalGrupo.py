@@ -15,6 +15,17 @@ OrcClass = [15, 0, 0, 2, 2, 2, 0]
 def DiceRoll(d):
     return random.randint(1, d)
 
+#fase iniciante: definir tipos
+def ClassInit(ClassType):
+    if ClassType == "Warrior":
+        return WarriorClass.copy()
+    elif ClassType == "Priest":
+        return PriestClass.copy()
+    elif ClassType == "Orc":
+        return OrcClass.copy()
+    else:
+        return []    
+
 #fase iniciante:dice roll
 def RollInit(character):
     Init = DiceRoll(20) + character[5]
@@ -30,3 +41,14 @@ def sortList(turnOrder):
     ListClass = [WarriorClass, PriestClass, OrcClass]
     print("Sorted ListClass based on index 0: % s" % (sorted(ListClass, key=itemgetter(0))))
 
+#fases atacantes:
+"""
+#ataque do warrior
+def WarriorAtack():
+
+#ataque do priest
+def PriestAtack():
+    
+#ataque do orc
+def OrcAtack():
+"""
