@@ -68,11 +68,47 @@ def WarriorAttack(hp, wp, mp, mc, ap, sp):
          print("You struck the enemy")
          hp = hp - (wp - ap)
     return(hp,mp)
-    """
 
 #ataque do priest
-def PriestAtack():
-    
+def PriestAttack(hp, wp, mp, mc, ap, sp):
+    print("Choose your action")
+    print("1:Magic")
+    print("2:Attack")
+    Action = input()
+    if Action == 1:
+        print("Choose your Spell")
+        print("1:Mend")
+        print("2:Exorcism")
+        Spell = input()
+        if Spell == 1:
+            Target = input("Choose target:")
+            if Target == 1:
+                print("You healed yourself")
+                mp = mp - mc
+                hp = hp + sp
+            elif Target == 2:
+                print("You healed yourself")
+                mp = mp - mc
+                hp = hp + sp
+        elif Spell == 2:
+            Target = input("Choose target:")
+            if Target == 1:
+                print("You casted Exorcism")
+                hp = hp - (sp - ap)
+                mp = mp - mc
+            elif Target == 2:
+                print("You casted Exorcism")
+                hp = hp - (sp - ap)
+                mp = mp - mc
+    elif Action ==2:
+         Target = input("Choose target:")
+         print("You struck the enemy")
+         hp = hp - (wp - ap)
+    return(hp,mp)
+
 #ataque do orc
-def OrcAtack():
-"""
+def OrcTurn(hp, wp, mp, ap):
+            print("The enemy strikes!")
+            print(random.choice(range("Priest", "Warrior")))
+            hp = hp - (wp - ap)
+            return(hp)  
