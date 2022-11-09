@@ -42,9 +42,33 @@ def sortList(turnOrder):
     print("Sorted ListClass based on index 0: % s" % (sorted(ListClass, key=itemgetter(0))))
 
 #fases atacantes:
-"""
 #ataque do warrior
-def WarriorAtack():
+
+def WarriorAttack(hp, wp, mp, mc, ap, sp):
+    print("Choose your action")
+    print("1:Magic")
+    print("2:Attack")
+    Action = input()
+    if Action == 1:
+        print("Choose your Spell")
+        print("1:Rushdown")
+        Spell = input()
+        if Spell == 1:
+            Target = input("Choose target:")
+            if Target == 1:
+                print("You casted Rushdown on the enemy")
+                mp = mp - mc
+                hp = hp - (sp-ap)
+            elif Target == 2:
+                print("You casted Rushdown on the enemy")
+                mp = mp - mc
+                hp = hp - (sp-ap)
+    elif Action ==2:
+         Target = input("Choose target:")
+         print("You struck the enemy")
+         hp = hp - (wp - ap)
+    return(hp,mp)
+    """
 
 #ataque do priest
 def PriestAtack():
