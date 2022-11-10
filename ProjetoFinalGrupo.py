@@ -2,13 +2,12 @@
 
 #import da bibliotecas a ser usadas
 import random
-from operator import itemgetter
 
 #Characters stats = hp, mp, mc(mana cost), ap, wp, Init, UpdateInit, sp(spell power)
-WarriorClass = [32, 5, 0, 0, 2, 5, 2, 0]
-PriestClass = [20, 25, 0, 0, 0, 2, 6, 0]
+WarriorClass = [32, 5, 0, 2, 5, 2, 0, 0]
+PriestClass = [20, 25, 0, 0, 2, 6, 0, 0]
 OrcClass = [15, 0, 0, 2, 2, 2, 0]
-
+ListClass = [WarriorClass, PriestClass, OrcClass]
 #fases iniciantes:
 
 #def dados:
@@ -30,16 +29,17 @@ def ClassInit(ClassType):
 def RollInit(character):
     Init = DiceRoll(20) + character[5]
     character[6] = Init
-
+    
 #fase iniciante: sort
 def InitFase (ListOfCharacter):
     for character in ListOfCharacter:
         RollInit(character)
 
 # listas dentro de lista
-def sortList(turnOrder):
-    ListClass = [WarriorClass, PriestClass, OrcClass]
-    print("Sorted ListClass based on index 0: % s" % (sorted(ListClass, key=itemgetter(0))))
+def Init_Updated(IU):
+    return IU[6]
+#sort mudar local
+ListClass.sort(key = Init_Updated)
 
 #fases atacantes:
 #ataque do warrior
