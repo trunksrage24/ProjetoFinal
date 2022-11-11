@@ -8,6 +8,7 @@ WarriorClass = [32, 5, 0, 2, 5, 2, 0, 0]
 PriestClass = [20, 25, 0, 0, 2, 6, 0, 0]
 OrcClass = [15, 0, 0, 2, 2, 2, 0]
 ListClass = [WarriorClass, PriestClass, OrcClass]
+
 #fases iniciantes:
 
 #def dados:
@@ -42,9 +43,15 @@ def Init_Updated(IU):
 ListClass.sort(key = Init_Updated)
 
 #fases atacantes:
-#ataque do warrior
 
-def WarriorAttack(hp, wp, mp, mc, ap, sp):
+#ataque do warrior
+def WarriorAttack(hp, mp, mc, ap, wp, sp):
+    hp = OrcClass[0]
+    mp = WarriorClass[1]
+    mc = WarriorClass[2]
+    ap = WarriorClass[3]
+    wp = WarriorClass[4]
+    sp = WarriorClass[5]
     print("Choose your action")
     print("1:Magic")
     print("2:Attack")
@@ -59,18 +66,30 @@ def WarriorAttack(hp, wp, mp, mc, ap, sp):
                 print("You casted Rushdown on the enemy")
                 mp = mp - mc
                 hp = hp - (sp-ap)
+                if hp <= 0:
+                    print("You killed an enemy!")
             elif Target == 2:
                 print("You casted Rushdown on the enemy")
                 mp = mp - mc
                 hp = hp - (sp-ap)
+                if hp <= 0:
+                    print("You killed an enemy!")
     elif Action ==2:
          Target = input("Choose target:")
          print("You struck the enemy")
          hp = hp - (wp - ap)
+         if hp <= 0:
+            print("You killed an enemy!")
     return(hp,mp)
 
 #ataque do priest
-def PriestAttack(hp, wp, mp, mc, ap, sp):
+def PriestAttack(hp, mp, mc, ap, wp, sp):
+    hp = OrcClass[0]
+    mp = WarriorClass[1]
+    mc = WarriorClass[2]
+    ap = WarriorClass[3]
+    wp = WarriorClass[4]
+    sp = WarriorClass[5]
     print("Choose your action")
     print("1:Magic")
     print("2:Attack")
@@ -96,19 +115,36 @@ def PriestAttack(hp, wp, mp, mc, ap, sp):
                 print("You casted Exorcism")
                 hp = hp - (sp - ap)
                 mp = mp - mc
+                if hp <= 0:
+                    print("You killed an enemy!")
             elif Target == 2:
                 print("You casted Exorcism")
                 hp = hp - (sp - ap)
                 mp = mp - mc
+                if hp <= 0:
+                    print("You killed an enemy!")
     elif Action ==2:
          Target = input("Choose target:")
          print("You struck the enemy")
          hp = hp - (wp - ap)
+         if hp <= 0:
+            print("You killed an enemy!")
     return(hp,mp)
 
 #ataque do orc
-def OrcTurn(hp, wp, mp, ap):
-            print("The enemy strikes!")
-            print(random.choice(range("Priest", "Warrior")))
-            hp = hp - (wp - ap)
-            return(hp)  
+def OrcTurn(hp, wp, ap):        
+    print("The enemy strikes!")
+    print(random.choice(range(0,1)))
+    #0 = WarriorClass[0]
+    #1 = PriestClass[0]
+    if random.choice == 0:
+        #hp = hp - (wp - ap)
+        WarriorClass[0] = WarriorClass[0] - (OrcClass[4] - WarriorClass[4])
+        if WarriorClass[0] <= 0:
+            print("You died!")
+        return(WarriorClass[0])
+    if random.choice == 1:
+        #hp = hp - (wp - ap)
+        PriestClass[0] = PriestClass[0] - (OrcClass[4] - PriestClass[4])
+        if PriestClass[0] <= 0:
+            print("You died!")
