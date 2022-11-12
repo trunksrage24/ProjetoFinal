@@ -11,7 +11,7 @@ Vitor e Tiago chamamos as funçoes depois de definir o esqueleto até estar tudo
 
 fica a faltar interfaces : 
 	historia e mais detalhe nas informaçoes
-	fluxograma
+	adicionar restantes dados que ainda faltam no jogo e verificar e falta alguma coisa dos parametros necessarios
 	fazer os pontos necessarios para pontos extra
 
 
