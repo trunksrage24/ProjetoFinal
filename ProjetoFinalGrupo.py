@@ -6,10 +6,10 @@ import random
 #Characters stats = hp, mp, mc(mana cost), ap, wp, Init, UpdateInit, sp(spell power), name
 WarriorClass = [32, 5, 0, 2, 5, 2, 0, 0, "warrior"]
 PriestClass = [20, 25, 0, 0, 2, 6, 0, 0, "priest"]
-OrcClass1 = [15, 0, 0, 2, 2, 2, 0, 0, "orc"]
-OrcClass2 = [15, 0, 0, 2, 2, 2, 0, 0, "orc"]
-OrcClass3 = [15, 0, 0, 2, 2, 2, 0, 0, "orc"]
-OrcClass4 = [15, 0, 0, 2, 2, 2, 0, 0, "orc"]
+OrcClass1 = [15, 0, 0, 2, 2, 2, 0, 0, "orc1"]
+OrcClass2 = [15, 0, 0, 2, 2, 2, 0, 0, "orc2"]
+OrcClass3 = [15, 0, 0, 2, 2, 2, 0, 0, "orc3"]
+OrcClass4 = [15, 0, 0, 2, 2, 2, 0, 0, "orc4"]
 ListClass = [WarriorClass, PriestClass, OrcClass1, OrcClass2, OrcClass3, OrcClass4]
 
 #fases iniciantes:
@@ -32,62 +32,65 @@ def InitFase (ListOfCharacter):
 
 #ataque do warrior
 def WarriorAttack(hp1, hp2, hp3, hp4, mp, mc, ap, wp, sp):
+    print("Your Warrior is getting ready to attack...")
     print("Choose your action")
     print("1:Magic")
     print("2:Attack")
     Action = input()
-    if Action == 1:
+    if Action == "1":
         print("Choose your Spell")
         print("1:Rushdown")
         Spell = input()
-        if Spell == 1:
+        if Spell == "1":
             Target = input("Choose target:")
-            if Target == 1:
+            if Target == "1":
                 print("You casted Rushdown on orc 1")
                 mc = 5
                 mp = mp - mc
                 hp1 = hp1 - (sp-ap)
                 if hp1 <= 0:
                     print("You killed orc 1!")
-            elif Target == 2:
+            elif Target == "2":
                 print("You casted Rushdown on orc 2")
                 mc = 5
                 mp = mp - mc
                 hp2 = hp2 - (sp-ap)
                 if hp2 <= 0:
                     print("You killed orc 2!")
-            elif Target == 3:
+            elif Target == "3":
                 print("You casted Rushdown on orc 3")
                 mc = 5
                 mp = mp - mc
                 hp3 = hp3 - (sp-ap)
                 if hp3 <= 0:
                     print("You killed orc 3!")
-            elif Target == 4:
+            elif Target == "4":
                 print("You casted Rushdown on orc 4")
                 mc = 5
                 mp = mp - mc
                 hp4 = hp4 - (sp-ap)
                 if hp4 <= 0:
                     print("You killed on orc 4!")
-    elif Action ==2:
+            else:
+                print("choose between 1 and 4")
+    elif Action =="2":
         Target = input("Choose target:")
-        if Target == 1:
+        if Target == "1":
             print("You struck orc 1")
             hp1 = hp1 - (wp - ap)
             if hp1 <= 0:
                 print("You killed orc 1!")
-        elif Target == 2:
+        elif Target == "2":
             print("You struck orc 2")
             hp2 = hp2 - (wp - ap)
             if hp2 <= 0:
                 print("You killed orc 2!")
-        elif Target == 3:
+        elif Target == "3":
             print("You struck orc 3")
             hp3 = hp3 - (wp - ap)
             if hp3 <= 0:
                 print("You killed orc 3!")
-        elif Target == 4:
+        elif Target == "4":
             print("You struck orc 4")
             hp4 = hp4 - (wp - ap)
             if hp4 <= 0:
@@ -95,51 +98,52 @@ def WarriorAttack(hp1, hp2, hp3, hp4, mp, mc, ap, wp, sp):
     return[hp1, hp2, hp3, hp4, mp, mc, ap, wp, sp]
 #ataque do priest
 def PriestAttack(hp, hp1, hp2, hp3, hp4, hpW, mp, mc, ap, wp, sp):
+    print("Your Priest is getting ready to attack...")
     print("Choose your action")
     print("1:Magic")
     print("2:Attack")
     Action = input()
-    if Action == 1:
+    if Action == "1":
         print("Choose your Spell")
         print("1:Mend")
         print("2:Exorcism")
         Spell = input()
-        if Spell == 1:
+        if Spell == "1":
             Target = input("Choose target:")
-            if Target == 1:
+            if Target == "1":
                 print("You healed yourself!")
                 mc = 3
                 mp = mp - mc
                 hp = hp + sp
-            elif Target == 2:
+            elif Target == "2":
                 print("You healed the warrior!")
                 mc = 3
                 mp = mp - mc
                 hpW = hpW + sp
-        elif Spell == 2:
+        elif Spell == "2":
             Target = input("Choose target:")
-            if Target == 1:
+            if Target == "1":
                 print("You casted Exorcism on orc 1")
                 hp1 = hp1 - (sp - ap)
                 mc = 5
                 mp = mp - mc
                 if hp1 <= 0:
                     print("You killed orc 1!")
-            elif Target == 2:
+            elif Target == "2":
                 print("You casted Exorcism on orc 2")
                 hp2 = hp2 - (sp - ap)
                 mc = 5
                 mp = mp - mc
                 if hp2 <= 0:
                     print("You killed orc 2!")
-            elif Target == 3:
+            elif Target == "3":
                 print("You casted Exorcism on orc 3")
                 hp3 = hp3 - (sp - ap)
                 mc = 5
                 mp = mp - mc
                 if hp3 <= 0:
                     print("You killed orc 3!")
-            elif Target == 4:
+            elif Target == "4":
                 print("You casted Exorcism on orc 4")
                 hp4 = hp4 - (sp - ap)
                 mc = 5
@@ -148,22 +152,22 @@ def PriestAttack(hp, hp1, hp2, hp3, hp4, hpW, mp, mc, ap, wp, sp):
                     print("You killed orc 4!")
     elif Action ==2:
         Target = input("Choose a target:")
-        if Target == 1:
+        if Target == "1":
             print("You struck orc 1")
             hp1 = hp1 - (wp - ap)
             if hp1 <= 0:
                 print("You killed orc 1!")
-        elif Target == 2:
+        elif Target == "2":
             print("You struck orc 2")
             hp2 = hp2 - (wp - ap)
             if hp2 <= 0:
                 print("You killed orc 2!")
-        elif Target == 3:
+        elif Target == "3":
             print("You struck orc 3!")
             hp3 = hp3 - (wp - ap)
             if hp3 <= 0:
                 print("You killed orc 3!")
-        elif Target == 4:
+        elif Target == "4":
             print("You struck orc 3!")
             hp4 = hp4 - (wp - ap)
             if hp4 <= 0:
@@ -175,16 +179,17 @@ def PriestAttack(hp, hp1, hp2, hp3, hp4, hpW, mp, mc, ap, wp, sp):
 #ataque do orc 1
 def OrcAttack1(hp1, hp2, wp1, ap1, ap2):        
     print("Orc 1 strikes!")
-    print(random.choice(range(0,1)))
-    #0 = WarriorClass[0]
-    #1 = PriestClass[0]
-    if random.choice == 0:
+    print("... on ... ")
+    DiceRoll(2)
+    if DiceRoll == 1:
+        print("Orc1 attacks Warrior.")
         #hp = hp - (wp - ap)
         hp1 = hp1 - (wp1 - ap1)
         if hp1 <= 0:
             print("Warrior died!")
         return(hp1)
-    if random.choice == 1:
+    elif DiceRoll == 2:
+        print("Orc1 attacks Priest.")
         #hp = hp - (wp - ap)
         hp2 = hp2 - (wp1 - ap2)
         if hp2 <= 0:
@@ -194,16 +199,17 @@ def OrcAttack1(hp1, hp2, wp1, ap1, ap2):
 #ataque do orc 2
 def OrcAttack2(hp1, hp2, wp2, ap1, ap2):        
     print("Orc 2 strikes!")
-    print(random.choice(range(0,1)))
-    #0 = WarriorClass[0]
-    #1 = PriestClass[0]
-    if random.choice == 0:
+    print("... on ... ")
+    DiceRoll(2)
+    if DiceRoll == 1:
+        print("Orc2 attacks Warrior.")
         #hp = hp - (wp - ap)
         hp1 = hp1 - (wp2 - ap1)
         if hp1 <= 0:
             print("Warrior died!")
         return(hp1)
-    if random.choice == 1:
+    elif DiceRoll == 2:
+        print("Orc2 attacks Priest.")
         #hp = hp - (wp - ap)
         hp2 = hp2 - (wp2 - ap2)
         if hp2 <= 0:
@@ -213,16 +219,17 @@ def OrcAttack2(hp1, hp2, wp2, ap1, ap2):
 #ataque do orc 3
 def OrcAttack3(hp1, hp2, wp3, ap1, ap2):        
     print("Orc 3 strikes!")
-    print(random.choice(range(0,1)))
-    #0 = WarriorClass[0]
-    #1 = PriestClass[0]
-    if random.choice == 0:
+    print("... on ... ")
+    DiceRoll(2)
+    if DiceRoll == 1:
+        print("Orc3 attacks Warrior.")
         #hp = hp - (wp - ap)
         hp1 = hp1 - (wp3 - ap1)
         if hp1 <= 0:
             print("Warrior died!")
         return(hp1)
-    if random.choice == 1:
+    if DiceRoll == 2:
+        print("Orc3 attacks Priest.")
         #hp = hp - (wp - ap)
         hp2 = hp2 - (wp3 - ap2)
         if hp2 <= 0:
@@ -232,16 +239,17 @@ def OrcAttack3(hp1, hp2, wp3, ap1, ap2):
 #ataque do orc 4
 def OrcAttack4(hp1, hp2, wp4, ap1, ap2):        
     print("Orc 4 strikes!")
-    print(random.choice(range(0,1)))
-    #0 = WarriorClass[0]
-    #1 = PriestClass[0]
-    if random.choice == 0:
+    print("... on ... ")
+    DiceRoll(2)
+    if DiceRoll == 1:
+        print("Orc4 attacks Warrior.")
         #hp = hp - (wp - ap)
         hp1 = hp1 - (wp4 - ap1)
         if hp1 <= 0:
             print("Warrior died!")
         return(hp1)
-    if random.choice == 1:
+    if DiceRoll == 2:
+        print("Orc4 attacks Priest.")
         #hp = hp - (wp - ap)
         hp2 = hp2 - (wp4 - ap2)
         if hp2 <= 0:
@@ -250,7 +258,7 @@ def OrcAttack4(hp1, hp2, wp4, ap1, ap2):
 
 
 #ciclo principal
-while True:1
+while (WarriorClass[0] > 0 and PriestClass[0] > 0) or (OrcClass1[0] <= 0 and OrcClass2[0] <= 0 and OrcClass3[0] <= 0 and OrcClass4[0] <= 0):
     #atribuir o  valor do novo init a cada classe
     InitFase(ListClass)
 
