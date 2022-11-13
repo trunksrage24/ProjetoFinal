@@ -15,5 +15,8 @@ ultimo edit:
 	o ciclo while continua com problemas a guardar os updates entre turnos e isto causa valores impossiveis acontecerem.
 
 
+link repositório = https://github.com/trunksrage24/ProjetoFinal
+
+
 upload imagem exemplo:
 ![README](readme.png)
