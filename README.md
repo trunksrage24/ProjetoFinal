@@ -10,11 +10,9 @@ em conjunto com o Tiago e ajuda da professora modificamos e completamos a fase d
 	Vitor e Tiago chamamos as funçoes depois de definir o esqueleto até estar tudo ok.
 	Pequenas correções feitas em em conjunto pelos membros do grupo, embora apareçam commits de ambos.
 
-fica a faltar : 
-	historia e mais detalhe nas informaçoes
-	adicionar restantes dados que ainda faltam no jogo e verificar e falta alguma coisa dos parametros necessarios
-	fazer os pontos necessarios para pontos extra
-	corrigir no while o facto do turno do priest encravar e passar a frente.
+ultimo edit:
+	foi adicionado um ghost que so e afetado por feitiços
+	o ciclo while continua com problemas a guardar os updates entre turnos e isto causa valores impossiveis acontecerem.
 
 
 upload imagem exemplo:
